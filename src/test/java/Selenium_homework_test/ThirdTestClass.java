@@ -32,7 +32,7 @@ public class ThirdTestClass extends BaseTest {
         String actualResultAfterClickButtonClickMe = afterClickButtonClickMe.getText();
 
         Assertions.assertThat(actualResultAfterClickButtonClickMe)
-                .as("After click button must be message appears" + exceptionMessageAppearsAfterClickButtonClickMe)
+                .as("After click button must be message appears" + " " + exceptionMessageAppearsAfterClickButtonClickMe)
                 .isEqualTo(exceptionMessageAppearsAfterClickButtonClickMe);
 
         WebElement clickOnButtonRightClickMe = driver.findElement
@@ -45,7 +45,7 @@ public class ThirdTestClass extends BaseTest {
         String actualResultAfterClickOnTheButton = afterRightClickingOnTheButtonRightClickMe.getText();
 
         Assertions.assertThat(actualResultAfterClickOnTheButton)
-                .as("After click button must be message appears" + exceptionMessageAppearsAfterClickButtonRightClickMe)
+                .as("After click button must be message appears" + " " + exceptionMessageAppearsAfterClickButtonRightClickMe)
                 .isEqualTo(exceptionMessageAppearsAfterClickButtonRightClickMe);
 
         WebElement doubleClickButtonDoubleClickMe = driver.findElement(By.id("doubleClickBtn"));
@@ -57,7 +57,7 @@ public class ThirdTestClass extends BaseTest {
                 afterRightClickingOnTheButtonDoubleClickMe.getText();
 
         Assertions.assertThat(actualResultAfterClickOnTheButtonDoubleClickMe)
-                .as("After click button must be message appears" +
+                .as("After click button must be message appears" + " " +
                         exceptionMessageAppearsAfterClickButtonDoubleClickMe)
                 .isEqualTo(exceptionMessageAppearsAfterClickButtonDoubleClickMe);
     }

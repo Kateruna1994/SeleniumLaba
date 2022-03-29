@@ -5,16 +5,12 @@ import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class TenTestClass extends BaseTest {
 
     @Test
     public void checkTabActivity() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement adArrow = wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.id("close-fixedban")));
         adArrow.click();
@@ -65,8 +61,6 @@ public class TenTestClass extends BaseTest {
                 .isTrue();
 
         softAssertions.assertAll();
-
-
     }
 
 }

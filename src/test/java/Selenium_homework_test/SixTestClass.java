@@ -1,20 +1,17 @@
 package Selenium_homework_test;
 
+import Utils.Utils;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class SixTestClass extends BaseTest {
 
-    @Test(invocationCount = 5)
+    @Test
     public void checkThatAlertDisappear() {
         String expectedResult = "This alert appeared after 5 seconds";
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement adArrow = wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.id("close-fixedban")));
         adArrow.click();
@@ -22,11 +19,11 @@ public class SixTestClass extends BaseTest {
 
         WebElement trackButton = driver.findElement
                 (By.xpath("//div[@class='card-body']/h5[text()='Alerts, Frame & Windows']"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", trackButton);
+        Utils.scrollToElement(driver, trackButton);
         trackButton.click();
 
         WebElement clickButton = driver.findElement(By.xpath("//li[@id='item-1']/span[text()='Alerts']"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", clickButton);
+        Utils.scrollToElement(driver, clickButton);
         clickButton.click();
 
 
@@ -41,7 +38,7 @@ public class SixTestClass extends BaseTest {
         alert.accept();
 
         Assertions.assertThat(actualAlertLabel)
-                .as("nnnnn")
+                .as("Text notification is open" + " " + expectedResult)
                 .isEqualTo(expectedResult);
 
         boolean isAlertStillPresent;

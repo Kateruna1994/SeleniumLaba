@@ -6,10 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class EleventhTestClass extends BaseTest {
 
@@ -17,7 +14,6 @@ public class EleventhTestClass extends BaseTest {
     public void checkIfWhiteIsSelected() {
         String expectedResult = "White";
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement adArrow = wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.id("close-fixedban")));
         adArrow.click();
@@ -41,7 +37,7 @@ public class EleventhTestClass extends BaseTest {
         String actualResultWasSelected = select.getFirstSelectedOption().getText();
 
         Assertions.assertThat(actualResultWasSelected)
-                .as("Must be was selected " + expectedResult)
+                .as("Must be was selected " + " " + expectedResult)
                 .isEqualTo(expectedResult);
 
     }

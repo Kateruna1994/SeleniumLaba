@@ -5,10 +5,7 @@ import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class TwelfthTestClass extends BaseTest {
 
@@ -16,7 +13,6 @@ public class TwelfthTestClass extends BaseTest {
     public void checkWhetherThereIsSelectionValue() {
         String expectedResult = "Ms.";
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement adArrow = wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.id("close-fixedban")));
         adArrow.click();
@@ -38,10 +34,10 @@ public class TwelfthTestClass extends BaseTest {
         WebElement checkIfTheRequiredFieldIsSelected = driver.findElement
                 (By.xpath("//div[text()='Ms.']"));
         checkIfTheRequiredFieldIsSelected.click();
-       String actualResult = checkIfTheRequiredFieldIsSelected.getText();
+        String actualResult = checkIfTheRequiredFieldIsSelected.getText();
 
         Assertions.assertThat(actualResult)
-                .as("Appears as select value " + expectedResult)
+                .as("Appears as select value" + " " + expectedResult)
                 .isEqualTo(expectedResult);
 
     }

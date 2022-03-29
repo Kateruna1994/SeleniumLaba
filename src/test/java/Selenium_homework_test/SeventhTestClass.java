@@ -5,10 +5,7 @@ import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class SeventhTestClass extends BaseTest {
 
@@ -16,7 +13,6 @@ public class SeventhTestClass extends BaseTest {
     public void checkTextExistInFirstBigSquare() {
         String expectedResult = "This is a sample page";
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement adArrow = wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.id("close-fixedban")));
         adArrow.click();
@@ -37,7 +33,7 @@ public class SeventhTestClass extends BaseTest {
         String actualResultCheckThatText = sampleHeading.getText();
 
         Assertions.assertThat(actualResultCheckThatText)
-                .as("jjj")
+                .as("There is text" + " " + expectedResult)
                 .isEqualTo(expectedResult);
     }
 
